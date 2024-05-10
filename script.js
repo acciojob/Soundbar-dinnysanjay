@@ -12,8 +12,12 @@ const sounds = {
   wrong: new Audio('sounds/wrong.mp3')
 };
 
+console.log('Sounds:', sounds);
+
 buttons.forEach(button => {
   button.addEventListener('click', () => {
+    console.log('Button clicked:', button.textContent);
+
     // Stop all sounds
     for (let sound in sounds) {
       sounds[sound].pause();
@@ -26,6 +30,8 @@ buttons.forEach(button => {
 });
 
 stopButton.addEventListener('click', () => {
+  console.log('Stop button clicked');
+
   // Stop all sounds
   for (let sound in sounds) {
     sounds[sound].pause();
