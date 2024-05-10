@@ -1,16 +1,34 @@
-//your JS code here. If required.
-let currentAudio = null; // to keep track of the current audio
+// Get all the buttons
+const buttons = document.querySelectorAll('.btn');
+const stopButton = document.querySelector('.stop');
 
-document.addEventListener("click", function(event) {
-    if (event.target.className === "btn") {
-        let soundName = event.target.textContent;
-        if (currentAudio) {
-            currentAudio.pause(); // stop the current audio before starting a new one
-        }
-        currentAudio = new Audio(`sounds/${soundName}.mp3`);
-        currentAudio.play();
-    } else if (event.target.className === "stop" && currentAudio) {
-        currentAudio.pause();
-        currentAudio = null; // reset the current audio
+// Create an audio element for each button
+const sounds = {
+  applause: new Audio('sounds/applause.mp3'),
+  boo: new Audio('sounds/boo.mp3'),
+  gasp: new Audio('sounds/gasp.mp3'),
+  tada: new Audio('sounds/tada.mp3'),
+  victory: new Audio('sounds/victory.mp3'),
+  wrong: new Audio('sounds/wrong.mp3')
+};
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Stop all sounds
+    for (let sound in sounds) {
+      sounds[sound].pause();
+      sounds[sound].currentTime = 0;
     }
+
+    // Play the sound associated with the button
+    sounds[button.textContent].play();
+  });
+});
+
+stopButton.addEventListener('click', () => {
+  // Stop all sounds
+  for (let sound in sounds) {
+    sounds[sound].pause();
+    sounds[sound].currentTime = 0;
+  }
 });
