@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-	<section id="buttons">
-		<button class="btn">applause</button>
-		<button class="btn">boo</button>
-		<button class="btn">gasp</button>
-		<button class="btn">tada</button>
-		<button class="btn">victory</button>
-		<button class="btn">wrong</button>
-		<button class="stop">stop</button>
-	</section>
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div id="buttons">
+        <button class="btn" onclick="playSound('sound1.mp3')">Sound 1</button>
+        <button class="btn" onclick="playSound('sound2.mp3')">Sound 2</button>
+        <button class="btn" onclick="playSound('sound3.mp3')">Sound 3</button>
+        <!-- Add more buttons for additional sounds -->
+        <button class="stop" onclick="stopSound()">Stop</button>
+    </div>
 
+    <script src="script.js"></script>
 </body>
-
 </html>
