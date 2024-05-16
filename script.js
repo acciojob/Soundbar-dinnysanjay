@@ -1,3 +1,19 @@
+var audio;
+
+function playSound(filename) {
+    if(audio) {
+        audio.pause();
+    }
+    audio = new Audio(`sounds/${filename}`);
+    audio.play();
+}
+
+function stopSound() {
+    if(audio) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+}
 // Get all the buttons
 const buttons = document.querySelectorAll('.btn');
 const stopButton = document.querySelector('.stop');
